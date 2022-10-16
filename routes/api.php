@@ -3,6 +3,7 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\api\v1\AuthController;
+use App\Http\Controllers\api\v1\UserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -24,5 +25,7 @@ Route::group([
     'middleware' => 'auth:sanctum',
     'prefix' => 'auth'
 ], function ($router) {
-    Route::post('me', [AuthController::class, 'me'])->name('me');
+    Route::get('me', [AuthController::class, 'me'])->name('me');
+    Route::get('users', [UserController::class, 'index'])->name('index');
+    Route::post('users/store', [UserController::class, 'store']);
 });
