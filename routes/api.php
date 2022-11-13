@@ -28,4 +28,5 @@ Route::group([
     Route::get('me', [AuthController::class, 'me'])->name('me');
     Route::get('users', [UserController::class, 'index'])->name('index');
     Route::post('users/store', [UserController::class, 'store']);
+    Route::post('users/update', [UserController::class, 'update']);
 });
